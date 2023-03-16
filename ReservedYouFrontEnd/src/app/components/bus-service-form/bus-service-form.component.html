@@ -1,0 +1,27 @@
+<form [formGroup]="form" (ngSubmit)="AddBusService()">
+    <div>
+        <label for="name">Registration Number</label>
+        <input formControlName="registrationNumber" placeholder="Registration No"/>
+    </div>
+    <div>
+        <label for="name">Name</label>
+        <input formControlName="name" placeholder="Name"/>
+    </div>
+    <div>
+        <label for="name">Address</label>
+        <input formControlName="address" placeholder="Address"/>
+    </div>
+    <div>
+        <label for="name">Phone</label>
+        <input formControlName="phone" placeholder="Phone"/>
+    </div>
+    <div>
+        <label for="name">Email</label>
+        <input formControlName="email" placeholder="Email"/>
+    </div>
+    <div>
+        <label for="name">Password</label>
+        <input formControlName="password" placeholder="Password"/>
+    </div>
+    <button type="submit">Submit</button>
+</form>
