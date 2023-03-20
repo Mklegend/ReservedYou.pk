@@ -1,9 +1,25 @@
-<div>
-    <label>Registration Number : </label> {{busServiceInput.registrationNumber}}
-    <label>Name : </label> {{busServiceInput.name}}
-    <label>Address : </label> {{busServiceInput.address}}
-    <label>Phone: </label> {{busServiceInput.phone}}
-    <label>Email : </label> {{busServiceInput.email}}
-</div>
-<button (click)="Edit()">Edit</button>
-<button (click)="Delete()">Delete</button>
+<nz-card class="card">
+  <div class="card__title" nzTitle>Bus Service Details</div>
+  <div class="card__body" nzBody>
+    <div>
+      <label class="card__label">Registration Number:</label>
+      <span class="card__value">{{ busServiceInput.registrationNumber }}</span>
+    </div>
+    <div>
+      <label class="card__label">Name:</label>
+      <span class="card__value">{{ busServiceInput.name }}</span>
+    </div>
+    <div>
+      <label class="card__label">Address:</label>
+      <span class="card__value">{{ busServiceInput.address }}</span>
+    </div>
+    <div>
+      <label class="card__label">Phone:</label>
+      <span class="card__value">{{ busServiceInput.phone }}</span>
+    </div>
+    <div>
+      <label class="card__label">Email:</label>
+      <span class="card__value">{{ busServiceInput.email }}</span>
+    </div>
+  </div>
+</nz-card>

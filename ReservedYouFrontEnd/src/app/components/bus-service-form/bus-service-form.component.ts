@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { NzNotificationService } from 'ng-zorro-antd/notification';
 import { BusService } from 'src/app/models/BusService';
 import { BusServiceAPIService } from 'src/app/services/bus-service-api.service';
 
@@ -11,8 +12,13 @@ import { BusServiceAPIService } from 'src/app/services/bus-service-api.service';
 export class BusServiceFormComponent {
   form:FormGroup;
   @Input() busServiceInput:BusService;
+  @Input()
+  getBusService!: () => void;
+  @Input()
+  close!:()=>void;
   busServiceApi:BusServiceAPIService;
-  constructor(busServiceApi:BusServiceAPIService){
+  
+  constructor(busServiceApi:BusServiceAPIService,private notification: NzNotificationService){
     this.form = new FormGroup({
       registrationNumber:new FormControl(),
       name:new FormControl(),
@@ -47,6 +53,9 @@ export class BusServiceFormComponent {
     }
     this.busServiceApi.AddBusService(formData).subscribe((res)=>{
       console.log(res);
+      this.getBusService();
     })
+    this.close();
+    this.notification.create('success', 'Success', 'Your changes have been saved successfully.');
   }
 }

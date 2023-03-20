@@ -1,5 +1,14 @@
-<div>
-    <div *ngFor="let bs of busServices">
-        <app-bus-service [busServiceInput]="bs"></app-bus-service>
+<div class="bus-services">
+  <button class="add-service-btn" (click)="addBusService()">
+    Add Bus Service
+  </button>
+  <div *ngFor="let bs of busServices">
+    <app-bus-service [busServiceInput]="bs"></app-bus-service>
+    <div class="btn-group">
+      <button class="delete-btn" (click)="deleteBusService(bs.busServiceId)">
+        Delete
+      </button>
+      <button class="edit-btn" (click)="editBusService(bs)">Edit</button>
     </div>
+  </div>
 </div>

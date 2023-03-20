@@ -1,0 +1,37 @@
+/* Styling for the card */
+.card {
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    padding: 16px;
+  }
+  
+  /* Styling for the title */
+  .card__title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 16px;
+    color: #333;
+  }
+  
+  /* Styling for the label */
+  .card__label {
+    display: inline-block;
+    width: 120px;
+    font-weight: bold;
+    color: #666;
+    margin-bottom: 8px;
+  }
+  
+  /* Styling for the value */
+  .card__value {
+    display: inline-block;
+    color: #333;
+    margin-bottom: 8px;
+  }
+  
+  /* Styling for the card body */
+  .card__body {
+    padding-top: 16px;
+  }
+  

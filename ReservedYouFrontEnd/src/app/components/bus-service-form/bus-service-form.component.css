@@ -1,0 +1,41 @@
+.bus-service-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 16px;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+  }
+  
+  .form-group {
+    margin-bottom: 16px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  input {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    background-color: #fafafa;
+    box-sizing: border-box;
+  }
+  
+  .ant-btn-primary {
+    background-color: #2196f3;
+    border-color: #2196f3;
+  }
+  
+  .ant-btn-primary:hover,
+  .ant-btn-primary:focus {
+    background-color: #0d8bf2;
+    border-color: #0d8bf2;
+  }
+  

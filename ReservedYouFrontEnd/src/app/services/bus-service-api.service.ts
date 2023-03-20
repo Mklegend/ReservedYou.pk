@@ -14,6 +14,6 @@ export class BusServiceAPIService {
     return this.http.get('https://localhost:7163/api/Admin/GetAllBusServices');
   }
   DeleteBusService(id:any){
-    return this.http.delete(`https://localhost:7163/api/Admin/DeleteBusService/${id}`);
+    return this.http.delete(`https://localhost:7163/api/Admin/DeleteBusService?id=${id}`);
   }
 }

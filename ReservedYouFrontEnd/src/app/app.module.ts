@@ -19,6 +19,10 @@ import { BusServiceComponent } from './components/bus-service/bus-service.compon
 import { BusServiceFormComponent } from './components/bus-service-form/bus-service-form.component';
 import { BusServiceAPIService } from './services/bus-service-api.service';
 import { NzDrawerService } from 'ng-zorro-antd/drawer';
+import { NzCardModule } from 'ng-zorro-antd/card';
+import { NzNotificationService } from 'ng-zorro-antd/notification';
+
+
 
 registerLocaleData(en);
 
@@ -41,11 +45,13 @@ registerLocaleData(en);
     BrowserAnimationsModule,
     NzLayoutModule,
     NzMenuModule,
-    IconsProviderModule
+    IconsProviderModule,
+    NzCardModule
   ],
   providers: [
     BusServiceAPIService,
-    NzDrawerService
+    NzDrawerService,
+    NzNotificationService
   ],
   bootstrap: [AppComponent]
 })

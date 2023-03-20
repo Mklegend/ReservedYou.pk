@@ -1,27 +1,28 @@
-<form [formGroup]="form" (ngSubmit)="AddBusService()">
-    <div>
-        <label for="name">Registration Number</label>
-        <input formControlName="registrationNumber" placeholder="Registration No"/>
+<form [formGroup]="form" (ngSubmit)="AddBusService()" class="bus-service-form">
+    <div class="form-group">
+      <label for="registrationNumber">Registration Number</label>
+      <input formControlName="registrationNumber" placeholder="Registration No" class="ant-input"/>
     </div>
-    <div>
-        <label for="name">Name</label>
-        <input formControlName="name" placeholder="Name"/>
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input formControlName="name" placeholder="Name" class="ant-input"/>
     </div>
-    <div>
-        <label for="name">Address</label>
-        <input formControlName="address" placeholder="Address"/>
+    <div class="form-group">
+      <label for="address">Address</label>
+      <input formControlName="address" placeholder="Address" class="ant-input"/>
     </div>
-    <div>
-        <label for="name">Phone</label>
-        <input formControlName="phone" placeholder="Phone"/>
+    <div class="form-group">
+      <label for="phone">Phone</label>
+      <input formControlName="phone" placeholder="Phone" class="ant-input"/>
     </div>
-    <div>
-        <label for="name">Email</label>
-        <input formControlName="email" placeholder="Email"/>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input formControlName="email" placeholder="Email" class="ant-input"/>
     </div>
-    <div>
-        <label for="name">Password</label>
-        <input formControlName="password" placeholder="Password"/>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input formControlName="password" placeholder="Password" type="password" class="ant-input"/>
     </div>
-    <button type="submit">Submit</button>
-</form>
+    <button type="submit" class="ant-btn ant-btn-primary">Submit</button>
+  </form>
+  
