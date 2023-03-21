@@ -1,0 +1,26 @@
+<div class="bus-services">
+  <button nz-button nzType="primary" (click)="addRoute()">Add Route</button>
+  <div nz-row>
+    <div *ngFor="let r of routes" nz-col nzSpan="8">
+      <app-route [routeInput]="r"></app-route>
+      <div class="btn-group">
+        <button
+          nz-button
+          nzType="primary"
+          class="edit-btn"
+          (click)="editRoute(r)"
+        >
+          Edit
+        </button>
+        <button
+          style="background-color: rgb(180, 33, 33)"
+          nz-button
+          nzType="primary"
+          (click)="deleteRoute(r.routeId)"
+        >
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

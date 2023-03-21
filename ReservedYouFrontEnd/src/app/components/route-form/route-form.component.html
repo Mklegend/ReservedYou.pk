@@ -1,0 +1,16 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <label for="startLocation">Start Location</label>
+    <input nz-input type="text" id="startLocation" formControlName="startLocation">
+  
+    <label for="endLocation">End Location</label>
+    <input nz-input type="text" id="endLocation" formControlName="endLocation">
+  
+    <label for="distance">Distance</label>
+    <input nz-input type="number" id="distance" formControlName="distance">
+  
+    <label for="duration">Duration</label>
+    <input nz-input type="number" id="duration" formControlName="duration">
+    
+    <button nz-button nzType="primary" type="submit" [disabled]="form.invalid">Submit</button>
+  </form>
+  

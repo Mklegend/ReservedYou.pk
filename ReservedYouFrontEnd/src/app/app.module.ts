@@ -21,8 +21,15 @@ import { BusServiceAPIService } from './services/bus-service-api.service';
 import { NzDrawerService } from 'ng-zorro-antd/drawer';
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzNotificationService } from 'ng-zorro-antd/notification';
-
-
+import { RouteFormComponent } from './components/route-form/route-form.component';
+import { RouteListComponent } from './components/route-list/route-list.component';
+import { RouteSectionComponent } from './components/route-section/route-section.component';
+import { RouteApiService } from './services/route-api.service';
+import { RouteComponent } from './components/route/route.component';
+import { NzTimelineModule } from 'ng-zorro-antd/timeline';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzGridModule } from 'ng-zorro-antd/grid';
 
 registerLocaleData(en);
 
@@ -34,7 +41,11 @@ registerLocaleData(en);
     BusServiceSectionComponent,
     BusServiceListComponent,
     BusServiceComponent,
-    BusServiceFormComponent
+    BusServiceFormComponent,
+    RouteFormComponent,
+    RouteListComponent,
+    RouteSectionComponent,
+    RouteComponent
   ],
   imports: [
     BrowserModule,
@@ -46,12 +57,17 @@ registerLocaleData(en);
     NzLayoutModule,
     NzMenuModule,
     IconsProviderModule,
-    NzCardModule
+    NzCardModule,
+    NzTimelineModule,
+    NzInputModule,
+    NzButtonModule,
+    NzGridModule 
   ],
   providers: [
     BusServiceAPIService,
     NzDrawerService,
-    NzNotificationService
+    NzNotificationService,
+    RouteApiService
   ],
   bootstrap: [AppComponent]
 })
