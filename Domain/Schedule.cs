@@ -6,6 +6,9 @@ namespace Model
         public Guid? BusServiceId { get; set; }
         public Guid? RouteId { get; set; }
 
+        // Change this to required primary key 
+        public string? RegistrationNumber { get; set; }
+
         public DateTime ScheduleDate { get; set; }  
 
         public DateTime DepartureTime { get; set; }
@@ -19,6 +22,8 @@ namespace Model
         public BusService? BusService { get; set; }
 
         public Routes? Route { get; set; }
+
+        public Bus? Bus { get; set; }
 
 
     }

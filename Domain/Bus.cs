@@ -10,6 +10,8 @@ namespace Model
 
         public List<Seat>? Seats { get; set; }
 
+        public Schedule? Schedule { get; set; }
+
     }
 }
 

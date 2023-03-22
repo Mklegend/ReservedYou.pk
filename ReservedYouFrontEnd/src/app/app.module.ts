@@ -30,6 +30,10 @@ import { NzTimelineModule } from 'ng-zorro-antd/timeline';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzGridModule } from 'ng-zorro-antd/grid';
+import { BusServiceDashboardComponent } from './components/bus-service-dashboard/bus-service-dashboard.component';
+import { ScheduleSectionComponent } from './components/schedule-section/schedule-section.component';
+import { ScheduleFormComponent } from './components/schedule-form/schedule-form.component';
+import { ScheduleApiService } from './services/schedule-api.service';
 
 registerLocaleData(en);
 
@@ -45,7 +49,10 @@ registerLocaleData(en);
     RouteFormComponent,
     RouteListComponent,
     RouteSectionComponent,
-    RouteComponent
+    RouteComponent,
+    BusServiceDashboardComponent,
+    ScheduleSectionComponent,
+    ScheduleFormComponent
   ],
   imports: [
     BrowserModule,
@@ -67,7 +74,8 @@ registerLocaleData(en);
     BusServiceAPIService,
     NzDrawerService,
     NzNotificationService,
-    RouteApiService
+    RouteApiService,
+    ScheduleApiService
   ],
   bootstrap: [AppComponent]
 })

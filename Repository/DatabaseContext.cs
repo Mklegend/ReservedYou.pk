@@ -26,11 +26,15 @@ namespace Repository
             );
             modelBuilder.Entity<Bus>(b =>
             {
-                b.HasKey(b => new { b.RegistrationNumber, b.BusServiceId });
+                b.HasKey(b => b.RegistrationNumber);
+                b.HasOne(b => b.Schedule)
+                .WithOne(s => s.Bus)
+                .HasForeignKey<Schedule>(s => s.RegistrationNumber);
             });
             modelBuilder.Entity<BusService>(b =>
             {
                 b.HasKey(b => b.BusServiceId);
+
             });
             modelBuilder.Entity<Payment>(p =>
             {
@@ -56,6 +60,8 @@ namespace Repository
             {
                 u.HasKey(u => u.UserId);
             });
+
+
         }
         public DbSet<Admin>? Admin { get; set; }
         public DbSet<Booking>? Booking { get; set; }
