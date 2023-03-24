@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Route } from 'src/app/models/Route';
 import { Schedule } from 'src/app/models/Schedule';
+import { RouteApiService } from 'src/app/services/route-api.service';
 import { ScheduleApiService } from 'src/app/services/schedule-api.service';
 
 @Component({
@@ -14,9 +16,14 @@ export class ScheduleFormComponent implements OnInit {
   @Input() getSchedule!: ()=>void;
   @Input() close!: ()=>void;
   // Create Schedule Service Here
+  
+  // Adding a List to store routes
 
-  constructor(private scheduleApi:ScheduleApiService){
+  routes:Route[];
+
+  constructor(private scheduleApi:ScheduleApiService, private routeApi:RouteApiService){
     this.scheduleInput = {} as Schedule;
+    this.routes = [];
     this.form = new FormGroup (
       {
         busServiceId: new FormControl(),
@@ -31,7 +38,19 @@ export class ScheduleFormComponent implements OnInit {
     )
   }
 
+  // Function to get Routes
+  getRoutes(){
+    this.routeApi.GetAllRoutes().subscribe((res)=>{
+      (res as []).map((r:Route)=>{
+        this.routes.push(new Route(r.routeId,r.startLocation,r.endLocation,r.distance,r.distance));
+      })
+    })
+  }
+
+
   ngOnInit(){
+    this.getRoutes();
+    this.form.get("routeId")?.setValue(this.scheduleInput.RouteId);
     this.form.get('registrationNumber')?.setValue(this.scheduleInput.RegistrationNumber);
     this.form.get('scheduleDate')?.setValue(this.scheduleInput.ScheduleDate);
     this.form.get("departureTime")?.setValue(this.scheduleInput.DepartureTime);
@@ -42,6 +61,8 @@ export class ScheduleFormComponent implements OnInit {
 
   AddSchedule(){
     let formData = new FormData();
+    formData.append("busServiceId",this.form.get("busServiceId")?.value);
+    formData.append("routeId",this.form.get("routeId")?.value);
     formData.append("registrationNumber",this.form.get('registrationNumber')?.value);
     formData.append("scheduleDate",this.form.get("scheduleDate")?.value);
     formData.append("departureTime",   this.form.get("departureTime")?.value);
@@ -56,6 +77,7 @@ export class ScheduleFormComponent implements OnInit {
     // Call to AddSchedule Service
     this.scheduleApi.AddSchedule(formData).subscribe((res)=>{
       console.log(res);
+      this.getSchedule();
     })
     this.close();
   

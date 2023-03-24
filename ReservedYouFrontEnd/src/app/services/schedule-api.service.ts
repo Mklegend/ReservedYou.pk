@@ -16,8 +16,10 @@ export class ScheduleApiService {
   // Get All Schedules belonging to the BusService
   GetAllSchedule(busServiceId:any){
     // Add Api Call
+    return this.http.get(`https://localhost:7163/api/BusService/GetSchedules?id=${busServiceId}`);
   }
   DeleteSchedule(id:any){
     // Add Api Call
+    return this.http.delete(`https://localhost:7163/api/Admin/DeleteSchedule?id=${id}`);
   }
 }

@@ -1,1 +1,11 @@
 <p>schedule-form works!</p>
+<div [formGroup]="form">
+  <select formControlName="routeId">
+    <option *ngFor="let r of routes" value="r">
+      {{ r.startLocation }} -- {{ r.endLocation }}
+    </option>
+  </select>
+  <!-- Add DropDown for Selecting Bus -->
+  <!-- TODO Create Bus Section --> 
+  <!-- Add Fields for remaining Columns -->
+</div>

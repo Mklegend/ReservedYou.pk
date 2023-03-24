@@ -9,8 +9,8 @@ namespace Business.Interfaces
 {
     public interface IScheduleManager
     {
-        public Schedule GetSchedule(Guid id);
-        public List<Schedule> GetSchedules();
+        //public Schedule GetSchedule(Guid id);
+        public List<Schedule> GetSchedules(Guid id);
         public bool UpdateSchedule(Schedule schedule);
         public bool DeleteSchedule(Guid id);
     }

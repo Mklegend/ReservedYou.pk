@@ -17,14 +17,9 @@ namespace Business.Implementation
             _databaseContext = databaseContext;
         }
 
-        public Schedule GetSchedule(Guid id)
+        public List<Schedule> GetSchedules(Guid id)
         {
-            return _databaseContext.Schedule.Find(id);
-        }
-
-        public List<Schedule> GetSchedules()
-        {
-            return _databaseContext.Schedule.ToList();
+            return _databaseContext.Schedule.Where(u => u.BusServiceId == id).ToList();
         }
 
         public bool UpdateSchedule(Schedule schedule)
