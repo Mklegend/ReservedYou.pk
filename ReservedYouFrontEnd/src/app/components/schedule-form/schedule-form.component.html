@@ -5,7 +5,32 @@
       {{ r.startLocation }} -- {{ r.endLocation }}
     </option>
   </select>
+  <select formControlName="registrationNumber">
+    <option *ngFor="let b of buses" value="b">
+        {{ b.registrationNumber }}
+    </option>
+  </select>
   <!-- Add DropDown for Selecting Bus -->
   <!-- TODO Create Bus Section --> 
   <!-- Add Fields for remaining Columns -->
+  <div>
+    <label>Date : </label>
+    <input formControlName="scheduleDate" type="date" nz-input />
+  </div>
+
+  <div>
+    <label>Departure Time : </label>
+    <input formControlName="departureTime" nz-input/>
+  </div>
+
+  <div>
+    <label>Arrival Time : </label>
+    <input formControlName="arrivalTime" nz-input/>
+  </div>
+
+  <div>
+    <label>Bus Fare : </label>
+    <input formControlName="busFare" nz-input/>
+  </div>
+
 </div>

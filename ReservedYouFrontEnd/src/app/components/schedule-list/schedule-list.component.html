@@ -1,0 +1,27 @@
+<div class="bus-services">
+    <button nz-button nzType="primary" (click)="addSchedule()">Add Schedule</button>
+    <div nz-row>
+      <div *ngFor="let s of schedules" nz-col nzSpan="8">
+        <!-- <app-route [scheduleInput]="s"></app-route> -->
+        <div class="btn-group">
+          <button
+            nz-button
+            nzType="primary"
+            class="edit-btn"
+            (click)="editSchedule(s)"
+          >
+            Edit
+          </button>
+          <button
+            style="background-color: rgb(180, 33, 33)"
+            nz-button
+            nzType="primary"
+            (click)="deleteSchedule(s.ScheduleId)"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

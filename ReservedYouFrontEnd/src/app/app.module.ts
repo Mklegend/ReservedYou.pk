@@ -34,6 +34,9 @@ import { BusServiceDashboardComponent } from './components/bus-service-dashboard
 import { ScheduleSectionComponent } from './components/schedule-section/schedule-section.component';
 import { ScheduleFormComponent } from './components/schedule-form/schedule-form.component';
 import { ScheduleApiService } from './services/schedule-api.service';
+import { BusApiService } from './services/bus-api.service';
+import { ScheduleListComponent } from './components/schedule-list/schedule-list.component';
+import { ScheduleComponent } from './components/schedule/schedule.component';
 
 registerLocaleData(en);
 
@@ -52,7 +55,9 @@ registerLocaleData(en);
     RouteComponent,
     BusServiceDashboardComponent,
     ScheduleSectionComponent,
-    ScheduleFormComponent
+    ScheduleFormComponent,
+    ScheduleListComponent,
+    ScheduleComponent
   ],
   imports: [
     BrowserModule,
@@ -75,7 +80,8 @@ registerLocaleData(en);
     NzDrawerService,
     NzNotificationService,
     RouteApiService,
-    ScheduleApiService
+    ScheduleApiService,
+    BusApiService
   ],
   bootstrap: [AppComponent]
 })

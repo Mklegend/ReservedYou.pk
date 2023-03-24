@@ -1,7 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Bus } from 'src/app/models/Bus';
 import { Route } from 'src/app/models/Route';
 import { Schedule } from 'src/app/models/Schedule';
+import { BusApiService } from 'src/app/services/bus-api.service';
 import { RouteApiService } from 'src/app/services/route-api.service';
 import { ScheduleApiService } from 'src/app/services/schedule-api.service';
 
@@ -14,16 +16,24 @@ export class ScheduleFormComponent implements OnInit {
   form:FormGroup;
   @Input() scheduleInput:Schedule;
   @Input() getSchedule!: ()=>void;
+  @Input() busServiceId:string;
   @Input() close!: ()=>void;
   // Create Schedule Service Here
   
   // Adding a List to store routes
 
   routes:Route[];
+  buses:Bus[];
 
-  constructor(private scheduleApi:ScheduleApiService, private routeApi:RouteApiService){
+  
+
+  constructor(private scheduleApi:ScheduleApiService,
+     private routeApi:RouteApiService,
+     private busApi:BusApiService){
     this.scheduleInput = {} as Schedule;
+    this.busServiceId = "";
     this.routes = [];
+    this.buses = [];
     this.form = new FormGroup (
       {
         busServiceId: new FormControl(),
@@ -47,9 +57,20 @@ export class ScheduleFormComponent implements OnInit {
     })
   }
 
+  getBuses(){
+    this.busApi.GetAllBuses(this.busServiceId).subscribe((res)=>{
+      (res as []).map((b:Bus)=>{
+        this.buses.push(new Bus(b.busServiceId,b.registrationNumber,b.isAvailable));
+      })
+    })
+  }
 
+
+  // We set the values of FormControls in this
+  // for the edit functionality !
   ngOnInit(){
     this.getRoutes();
+    this.getBuses();
     this.form.get("routeId")?.setValue(this.scheduleInput.RouteId);
     this.form.get('registrationNumber')?.setValue(this.scheduleInput.RegistrationNumber);
     this.form.get('scheduleDate')?.setValue(this.scheduleInput.ScheduleDate);

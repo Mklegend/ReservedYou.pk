@@ -6,10 +6,10 @@ export class Schedule {
     ScheduleDate:Date;
     DepartureTime:string;
     ArrivalTime:string;
-    BusFare:number;
+    BusFare:string;
     Approved:boolean;
 
-    constructor(sId:string,bsId:string,rId:string,rNum:string,sDate:Date,dTime:string,aTime:string,bFare:number,apr:boolean){
+    constructor(sId:string,bsId:string,rId:string,rNum:string,sDate:Date,dTime:string,aTime:string,bFare:string,apr:boolean){
         this.ScheduleId = sId;
         this.BusServiceId = bsId;
         this.RouteId = rId;
